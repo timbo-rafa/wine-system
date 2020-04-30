@@ -5,10 +5,10 @@ export function recommendation(client) {
     const recommendationApiUrl = nconf.get('RECOMMENDATION_API_HOST') +
                                 ':' + nconf.get('RECOMMENDATION_API_PORT');
 
-    const promise = new Promise((resolve) => {
+    const promise = new Promise((resolve, reject) => {
         superagent.get(recommendationApiUrl + '/' + client).end( (error, response) => {
             if (error) {
-                throw error;
+                return reject(error);
             }
 
             const recommendations = response.body;

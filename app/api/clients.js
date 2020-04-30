@@ -14,16 +14,14 @@ router.route('/').get(async function help(req, res, next) {
             [clients, orders] = clientsAndOrders;
             const parsedClients = clientQuery(clients, orders, req.query);
             res.status(200).send(parsedClients);
-        })
-        .catch( e => res.status(400).send(e.message));
+        }).catch( e => res.status(400).send(e.error || e.message));
 })
 
 router.route('/:cliente/recomendacao').get(function hash(req, res, next) {
     const cliente = req.cliente
     recommendation(cliente).then( recommendations => {
         res.status(200).send(recommendations);
-    })
-    .catch( e => res.status(400).send(e.message));
+    }).catch( e => res.status(400).send(e.error || e.message));
 })
 
 router.param('cliente', function (request, response, next, cliente) {

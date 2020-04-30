@@ -10,8 +10,7 @@ export function getOrders() {
             if (error) {
                 console.error(error.stack);
                 console.error('orderService error:', error.message);
-                reject(err);
-                return;
+                return reject(err);
             }
             
             const orders = response.body;
