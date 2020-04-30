@@ -11,8 +11,8 @@ export function recommendation(client) {
                 throw error;
             }
 
-            const recommendation = response.body;
-            resolve(recommendation);
+            const recommendations = response.body;
+            resolve(recommendations);
         });
     });
 

@@ -2,7 +2,7 @@
     "PORT":3000,
     "HOST": "localhost",
     "RECOMMENDATION_API_HOST": "localhost",
-    "RECOMMENDATION_API_PORT": "3010",
+    "RECOMMENDATION_API_PORT": "5000",
     "CLIENT_URL": "http://www.mocky.io/v2/598b16291100004705515ec5",
     "ORDER_HISTORY_URL": "http://www.mocky.io/v2/598b16861100004905515ec7"
 }

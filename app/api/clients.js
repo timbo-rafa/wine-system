@@ -3,6 +3,7 @@ import {getClients} from '../services/clientService.js';
 import {getOrders} from '../services/orderService.js';
 import { brDate } from '../services/dateService.js';
 import { fidelityProgram } from '../services/fidelityService.js';
+import { recommendation } from '../services/recommendationService.js';
 
 const router = Router()
 
@@ -17,14 +18,15 @@ router.route('/').get(async function help(req, res, next) {
         .catch( e => res.status(400).send(e.message));
 })
 
-router.route('/:cliente:/recomendacao').get(function hash(req, res, next) {
+router.route('/:cliente/recomendacao').get(function hash(req, res, next) {
     const cliente = req.cliente
-    const recommendation = recommendation(cliente);
-
-    res.status(200).send(recommendation);
+    recommendation(cliente).then( recommendations => {
+        res.status(200).send(recommendations);
+    })
+    .catch( e => res.status(400).send(e.message));
 })
 
-router.param('cliente', function (request, response, next, parameter) {
+router.param('cliente', function (request, response, next, cliente) {
     request.cliente = cliente
     return next()
 })
