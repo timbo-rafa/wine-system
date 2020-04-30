@@ -11,6 +11,13 @@ The [wine recommendation microservice](https://github.com/timbo-rafa/wine-system
 
 For unit test demos, please [click here](https://github.com/timbo-rafa?tab=repositories&q=test+demo).
 
+## Dependencies
+
+```
+$ node --version
+v14.0.0
+```
+
 ## Requirements
 ### 1 - Liste os clientes ordenados pelo maior valor total em compras.
 `GET /clientes?ordem=total_compras`
