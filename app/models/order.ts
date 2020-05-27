@@ -1,4 +1,6 @@
-class Order {
+import Item from './item';
+
+export default class Order {
     codigo: string;
     data: Date;
     cliente: string;
